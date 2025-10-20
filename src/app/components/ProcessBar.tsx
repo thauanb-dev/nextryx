@@ -1,7 +1,6 @@
 "use client"
 import {Package , FolderOpen , Tag } from 'lucide-react'
 import { useProcess } from './context/ProcessContext'
-
 function ProcessBar(){
     const {total} = useProcess()
     return(
