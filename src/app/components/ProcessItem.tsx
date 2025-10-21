@@ -14,7 +14,7 @@ interface ProcessItemProps{
 //TODO - Tornar os processo arrastaveis
 //TODO - Melhorar a experiencia UI
 
-function ProcessItem({name,key}:ProcessItemProps){
+function ProcessItem({name}:ProcessItemProps){
     return(
             <div className="flex h-[50px] w-[250px] border-l-8 border-green-500 bg-emerald-50 text-stone-900 rounded-xl hover:shadow-neutral-300 hover:shadow-md  transition-all duration-300 cursor-pointer items-center p-1 gap-2 ">
                 <div className="flex border-slate-300 border-r-2 p-1">
