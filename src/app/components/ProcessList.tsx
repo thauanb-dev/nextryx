@@ -3,8 +3,8 @@ import { useProcess } from "./context/ProcessContext"
 import { useEffect, useState } from "react"
 import { columns, DefProcess } from "./data/columns"
 import { DataTable } from "./data/data-table"
-import {v4 as uuid} from 'uuid'
 //tipar processList
+const uuid = ()=> crypto.randomUUID()
 async function getData(): Promise<DefProcess[]> {
   // Fetch data from your API here.
   const data: DefProcess[] = [
