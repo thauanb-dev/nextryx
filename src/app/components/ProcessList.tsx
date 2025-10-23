@@ -1,37 +1,54 @@
 "use client"
-import ProcessItem from "./ProcessItem"
 import { useProcess } from "./context/ProcessContext"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { columns, DefProcess } from "./data/columns"
+import { DataTable } from "./data/data-table"
+import {v4 as uuid} from 'uuid'
 //tipar processList
+async function getData(): Promise<DefProcess[]> {
+  // Fetch data from your API here.
+  const data: DefProcess[] = [
+    {
+    id:uuid(),
+    tag: "Consulta Propriedade",
+    process_number: "001.2025.123.556-78",
+    status: "pendente"
+    },
+    {
+    id:uuid(),
+    tag: "Georreferenciamento",
+    process_number: "001.2025.123.556-79",
+    status: "concluido"
+    },
+    {
+    id:uuid(),
+    tag: "Análise de Documentos",
+    process_number: "001.2025.123.556-80",
+    status: "em atendimento"
+    }
+  ]
+  console.log(data)
+  return data
+}
+
+
 function ProcessList(){
-    const processos = [
-  { "name": "001.2025.123.556-78","key":1 },
-  { "name": "001.2025.123.556-79","key":2 },
-  { "name": "001.2025.123.556-80","key":3 },
-  { "name": "001.2025.123.556-81","key":4 },
-  { "name": "001.2025.123.556-82","key":5 },
-  { "name": "001.2025.123.556-83","key":6 },
-  { "name": "001.2025.123.556-84","key":7 },
-  { "name": "001.2025.123.556-85","key":8 },
-  { "name": "001.2025.123.556-86","key":9 },
-  { "name": "001.2025.123.556-87","key":10 }
-]
+    const [data, setData] = useState<DefProcess[]>([])
   //utilizando o hook personalizado do ProcessContext
   const {setTotal} = useProcess() 
-
+  //puxando os dados
+  useEffect(() => {
+    getData().then(setData)
+  }, [])
   // Atualiza o valor global sempre que a lista mudar
     useEffect(()=>{
-        setTotal(processos.length)
-    },[processos,setTotal])
+        setTotal(data.length)
+    },[data,setTotal])
 
     return(
-        <div className="m-3 flex flex-wrap  gap-4 min-w-[80vw] min-h-[20vh] p-2 ">
-        {
-            processos.map((p)=>(
-                <ProcessItem key={p.key.toString()} name={p.name}/>
-            ))
-        }
-        </div>
+    <div className="container mx-auto py-10">
+      <DataTable columns={columns} data={data} />
+    </div>
     )
 }
 

@@ -1,17 +1,18 @@
 import Navbar from "./components/Navbar";
-import ProcessList from "./components/ProcessList";
-import CountProcess from "./components/ProcessBar";
-import { ProcessProvider } from "./components/context/ProcessContext";
+import ProcessBar from "@/components/ProcessBar";
+import ProcessList from "@/components/ProcessList";
+import {ProcessProvider} from "@/components/context/ProcessContext";
 
 export default function Home() {
   return (
     <>
       <Navbar/>
       <ProcessProvider>
-          <CountProcess/>
+          <ProcessBar/>
           <ProcessList/>
       </ProcessProvider>
     </>
+
   );
 }
 
