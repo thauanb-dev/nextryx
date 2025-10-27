@@ -1,6 +1,5 @@
 "use client";
 import ProcessItem from "./ProcessItem";
-import { ProcessItemProps } from "./ProcessItem";
 import { useProcess } from "./context/ProcessContext";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";

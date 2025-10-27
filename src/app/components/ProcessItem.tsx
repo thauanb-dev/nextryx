@@ -26,6 +26,7 @@ function ProcessItem({ name, onDelete, onCopy }: ProcessItemProps) {
     >
       <div className="flex border-slate-300 border-r-2 p-1">
         <Trash
+          className="hover:text-red-600 "
           size={16}
           height={16}
           onClick={(e) => {
@@ -34,6 +35,7 @@ function ProcessItem({ name, onDelete, onCopy }: ProcessItemProps) {
           }}
         />
         <Copy
+          className="hover:text-blue-600 "
           size={16}
           height={16}
           onClick={(e) => {
