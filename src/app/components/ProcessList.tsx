@@ -3,6 +3,7 @@ import ProcessItem from "./ProcessItem"
 import {ProcessItemProps} from "./ProcessItem"
 import { useProcess } from "./context/ProcessContext"
 import { useEffect , useState } from "react"
+import { toast } from "sonner"
 //tipar processList
 export type Process = {
   name: string;
@@ -27,10 +28,12 @@ const [process, setProcess] = useState<Process[]>([
 
 const handleDelete = (key:string)=>{
     setProcess((prev) => prev.filter((p) => p.key !== key));
+    toast.info("Processo deletado com sucesso!")
 }
 const handleCopy = (name:string)=>{
    navigator.clipboard.writeText(name)
    console.log("Copiado:", name)
+   toast.success("Processo copiado para a area de transferencia!")
 }
 
   // Atualiza o valor global sempre que a lista mudar
