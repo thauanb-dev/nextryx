@@ -5,16 +5,16 @@ import { useEffect } from "react"
 //tipar processList
 function ProcessList(){
     const processos = [
-  { "name": "001.2025.123.556-78", "key": 1 },
-  { "name": "001.2025.123.556-79", "key": 1 },
-  { "name": "001.2025.123.556-80", "key": 1 },
-  { "name": "001.2025.123.556-81", "key": 1 },
-  { "name": "001.2025.123.556-82", "key": 1 },
-  { "name": "001.2025.123.556-83", "key": 1 },
-  { "name": "001.2025.123.556-84", "key": 1 },
-  { "name": "001.2025.123.556-85", "key": 1 },
-  { "name": "001.2025.123.556-86", "key": 1 },
-  { "name": "001.2025.123.556-87", "key": 1 }
+  { "name": "001.2025.123.556-78", "key": crypto.randomUUID() },
+  { "name": "001.2025.123.556-79", "key": crypto.randomUUID() },
+  { "name": "001.2025.123.556-80", "key": crypto.randomUUID() },
+  { "name": "001.2025.123.556-81", "key": crypto.randomUUID() },
+  { "name": "001.2025.123.556-82", "key": crypto.randomUUID() },
+  { "name": "001.2025.123.556-83", "key": crypto.randomUUID() },
+  { "name": "001.2025.123.556-84", "key": crypto.randomUUID() },
+  { "name": "001.2025.123.556-85", "key": crypto.randomUUID() },
+  { "name": "001.2025.123.556-86", "key": crypto.randomUUID() },
+  { "name": "001.2025.123.556-87", "key": crypto.randomUUID() }
 ]
   //utilizando o hook personalizado do ProcessContext
   const {setTotal} = useProcess() 
